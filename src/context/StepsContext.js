@@ -14,12 +14,12 @@ export const initialState = {
   email: "",
   age: "",
   gender: "",
+  book: "",
+  colors: [],
 };
 
 function reducer(state, action) {
   const { payload } = action;
-  console.log("state", state);
-  console.log("action", action);
   switch (action.type) {
     case "nextStep":
       return {
@@ -37,6 +37,16 @@ function reducer(state, action) {
       return {
         ...state,
         [fieldName]: fieldValue,
+      };
+    case "setFormValueColor":
+      const colorValue = payload.event.target.value;
+      let newColors = [...state.colors, colorValue];
+      if (state.colors.includes(colorValue)) {
+        newColors = newColors.filter((color) => color !== colorValue);
+      }
+      return {
+        ...state,
+        colors: newColors,
       };
     default:
       return state;

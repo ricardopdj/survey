@@ -51,6 +51,8 @@ const Survey = () => {
           <div className="modal-body">
             <Identity />
             <Details />
+            <Favorites />
+            <Summary />
           </div>
           <div className="modal-footer justify-content-center">
             <PrevButton />
