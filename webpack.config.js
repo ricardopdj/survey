@@ -11,8 +11,29 @@ module.exports = {
         use: ["babel-loader"],
       },
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        test: /\.s[ac]ss$/i,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: function () {
+                  return [require("autoprefixer")];
+                },
+              },
+            },
+          },
+          {
+            // compiles Sass to CSS
+            loader: "sass-loader",
+          },
+        ],
       },
     ],
   },

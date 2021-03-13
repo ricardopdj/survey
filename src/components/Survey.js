@@ -1,16 +1,18 @@
 import { useContext } from "react";
 import { StepsContext, STEPS } from "../context/StepsContext";
 import { Identity, Details, Favorites, Summary } from "./Steps";
+import "../main.scss";
 
 const Survey = () => {
   const { state, dispatch } = useContext(StepsContext);
+  console.log(state);
 
   const PrevButton = () => {
     if (state.currentStep !== STEPS.IDENTITY) {
       return (
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-light me-auto"
           onClick={() => dispatch({ type: "prevStep" })}
         >
           Prev
@@ -25,10 +27,25 @@ const Survey = () => {
       return (
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-light"
           onClick={() => dispatch({ type: "nextStep" })}
         >
           Next
+        </button>
+      );
+    }
+    return null;
+  };
+
+  const SubmitButton = () => {
+    if (state.currentStep === STEPS.SUMMARY) {
+      return (
+        <button
+          type="button"
+          className="btn btn-success"
+          onClick={() => dispatch({ type: "submit" })}
+        >
+          Submit
         </button>
       );
     }
@@ -54,9 +71,10 @@ const Survey = () => {
             <Favorites />
             <Summary />
           </div>
-          <div className="modal-footer justify-content-center">
+          <div className="modal-footer">
             <PrevButton />
             <NextButton />
+            <SubmitButton />
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import React, { useReducer } from "react";
+import Storage from "../services/Storage";
 
 export const STEPS = {
   IDENTITY: 0,
@@ -8,7 +9,8 @@ export const STEPS = {
   SUMMARY: 3,
 };
 
-export const initialState = {
+// Set Initial State from session storage or a new one
+const initialState = Storage.getSurvey() || {
   currentStep: STEPS.IDENTITY,
   name: "",
   email: "",
@@ -16,21 +18,31 @@ export const initialState = {
   gender: "",
   book: "",
   colors: [],
+  submitted: false,
+};
+
+const storeSurvey = (surveyData) => {
+  Storage.saveSurvey(surveyData);
 };
 
 function reducer(state, action) {
   const { payload } = action;
+  let storedState;
   switch (action.type) {
     case "nextStep":
-      return {
+      storedState = {
         ...state,
         currentStep: state.currentStep + 1,
       };
+      storeSurvey(storedState);
+      return storedState;
     case "prevStep":
-      return {
+      storedState = {
         ...state,
         currentStep: state.currentStep - 1,
       };
+      storeSurvey(storedState);
+      return storedState;
     case "setFormValue":
       const fieldName = payload.event.target.name;
       const fieldValue = payload.event.target.value;
@@ -48,6 +60,10 @@ function reducer(state, action) {
         ...state,
         colors: newColors,
       };
+    case "submit":
+      const survey = document.getElementById("survey");
+      survey.remove();
+      return { ...state, submitted: true };
     default:
       return state;
   }
@@ -56,6 +72,7 @@ function reducer(state, action) {
 export const StepsContext = createContext();
 
 export const StepContextProvider = ({ children }) => {
+  console.log("initial state", initialState);
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (

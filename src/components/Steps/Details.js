@@ -22,6 +22,7 @@ const Details = () => {
             dispatch({ type: "setFormValue", payload: { event: e } })
           }
         >
+          <option>Select your age</option>
           <option value="0-19">0 - 10</option>
           <option value="10-20">10 - 20</option>
           <option value="20-30">20 - 30 </option>
@@ -39,7 +40,6 @@ const Details = () => {
             value="woman"
             checked={gender === "woman"}
             onChange={(e) => {
-              console.log(e);
               dispatch({ type: "setFormValue", payload: { event: e } });
             }}
           />
