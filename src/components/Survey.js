@@ -1,25 +1,9 @@
 import { useContext } from "react";
-import StepsContext, { STEPS } from "../context/StepsContext";
+import { StepsContext, STEPS } from "../context/StepsContext";
 import { Identity, Details, Favorites, Summary } from "./Steps";
 
 const Survey = () => {
   const { state, dispatch } = useContext(StepsContext);
-  console.log("survey", state);
-
-  const CurrentStep = () => {
-    switch (state.currentStep) {
-      case STEPS.IDENTITY:
-        return <Identity />;
-      case STEPS.DETAILS:
-        return <Details />;
-      case STEPS.FAVORITES:
-        return <Favorites />;
-      case STEPS.SUMMARY:
-        return <Summary />;
-      default:
-        return <Identity />;
-    }
-  };
 
   const PrevButton = () => {
     if (state.currentStep !== STEPS.IDENTITY) {
@@ -65,7 +49,8 @@ const Survey = () => {
             />
           </div>
           <div className="modal-body">
-            <CurrentStep />
+            <Identity />
+            <Details />
           </div>
           <div className="modal-footer justify-content-center">
             <PrevButton />
