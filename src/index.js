@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import App from "./App";
-const title = "Survey";
 
 function createSurveyContainer() {
   const surveyContainer = document.createElement("div");
@@ -13,9 +12,10 @@ function createSurveyContainer() {
 function init() {
   window.onload = () => {
     createSurveyContainer();
-    setTimeout(() => {
-      ReactDOM.render(<App title={title} />, document.getElementById("survey"));
-    }, 2000);
+    // setTimeout(() => {
+    //   ReactDOM.render(<App title={title} />, document.getElementById("survey"));
+    // }, 2000);
+    ReactDOM.render(<App />, document.getElementById("survey"));
   };
 }
 
