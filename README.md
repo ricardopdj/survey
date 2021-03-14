@@ -1,6 +1,6 @@
 <h1 align="center">Survey</h1>
 
-<div align="center">
+<div>
 
 A multi-step survey script which can be added to any website!
 Built with:
