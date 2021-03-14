@@ -1,7 +1,6 @@
 import { useContext } from "react";
-import { StepsContext, STEPS } from "../context/StepsContext";
-import { Identity, Details, Favorites, Summary } from "./Steps";
-import "../main.scss";
+import { closeSurvey, STEPS, StepsContext } from "../context/StepsContext";
+import { Details, Favorites, Identity, Summary } from "./Steps";
 
 const Survey = () => {
   const { state, dispatch } = useContext(StepsContext);
@@ -63,6 +62,7 @@ const Survey = () => {
               className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
+              onClick={() => closeSurvey()}
             />
           </div>
           <div className="modal-body">

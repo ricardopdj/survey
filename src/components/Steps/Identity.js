@@ -1,5 +1,5 @@
-import { StepsContext, STEPS } from "../../context/StepsContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
+import { STEPS, StepsContext } from "../../context/StepsContext";
 
 const Identity = () => {
   const { state, dispatch } = useContext(StepsContext);

@@ -1,5 +1,4 @@
-import { createContext } from "react";
-import React, { useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 import Storage from "../services/Storage";
 
 export const STEPS = {
@@ -23,6 +22,11 @@ const initialState = Storage.getSurvey() || {
 
 const storeSurvey = (surveyData) => {
   Storage.saveSurvey(surveyData);
+};
+
+export const closeSurvey = () => {
+  const survey = document.getElementById("survey");
+  survey.remove();
 };
 
 function reducer(state, action) {
@@ -61,9 +65,10 @@ function reducer(state, action) {
         colors: newColors,
       };
     case "submit":
-      const survey = document.getElementById("survey");
-      survey.remove();
-      return { ...state, submitted: true };
+      storedState = { ...state, submitted: true };
+      storeSurvey(storedState);
+      closeSurvey();
+      return storedState;
     default:
       return state;
   }
@@ -72,7 +77,6 @@ function reducer(state, action) {
 export const StepsContext = createContext();
 
 export const StepContextProvider = ({ children }) => {
-  console.log("initial state", initialState);
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (

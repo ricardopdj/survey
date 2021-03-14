@@ -1,7 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 import App from "./App";
+import Storage from "./services/Storage";
+
+function shouldOpenSurvey() {
+  const { submitted } = Storage.getSurvey() || false;
+  return !submitted;
+}
 
 function createSurveyContainer() {
   const surveyContainer = document.createElement("div");
@@ -10,13 +15,15 @@ function createSurveyContainer() {
 }
 
 function init() {
-  window.onload = () => {
-    createSurveyContainer();
-    // setTimeout(() => {
-    //   ReactDOM.render(<App title={title} />, document.getElementById("survey"));
-    // }, 2000);
-    ReactDOM.render(<App />, document.getElementById("survey"));
-  };
+  if (shouldOpenSurvey()) {
+    window.onload = () => {
+      createSurveyContainer();
+      setTimeout(() => {
+        ReactDOM.render(<App />, document.getElementById("survey"));
+      }, 2000);
+      // ReactDOM.render(<App />, document.getElementById("survey"));
+    };
+  }
 }
 
 module.hot.accept();

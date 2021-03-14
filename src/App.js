@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
-// import "bootstrap/dist/css/bootstrap.min.css";
-
-import { StepContextProvider } from "./context/StepsContext";
+import React from "react";
 import Survey from "./components/Survey";
+import { StepContextProvider } from "./context/StepsContext";
+import "./main.scss";
 
 const App = () => (
   <StepContextProvider>
