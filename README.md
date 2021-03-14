@@ -9,6 +9,8 @@ Built with:
 - React
 - Bootstrap 5
 
+
+
 ## 🔨 Usage
 
 Just add the dist/bundle.js in your html
@@ -42,3 +44,9 @@ And to build a new bundle version:
 ```bash
 $ npm run build
 ```
+
+## Screenshots
+<img width="200" src="screenshots/identity.png">
+<img width="200" src="screenshots/details.png">
+<img width="200" src="screenshots/favorites.png">
+<img width="200" src="screenshots/summary.png">
