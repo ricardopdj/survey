@@ -19,15 +19,11 @@ export const PrevButton = () => {
   return null;
 };
 
-export const NextButton = () => {
-  const { state, dispatch } = useContext(StepsContext);
+export const NextButton = ({ onClick }) => {
+  const { state } = useContext(StepsContext);
   if (state.currentStep !== STEPS.SUMMARY) {
     return (
-      <button
-        type="button"
-        className="btn btn-light"
-        onClick={() => dispatch({ type: actions.NEXT_STEP })}
-      >
+      <button type="button" className="btn btn-light" onClick={onClick}>
         Next
       </button>
     );

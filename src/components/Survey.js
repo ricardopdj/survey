@@ -1,8 +1,10 @@
+import { useContext } from "react";
+import { StepsContext } from "../context/StepsContext";
 import { closeSurvey } from "../services/Utils";
-import { NextButton, PrevButton, SubmitButton } from "./Buttons";
 import { Details, Favorites, Identity, Summary } from "./Steps";
 
 const Survey = () => {
+  const { state } = useContext(StepsContext);
   return (
     <div className="modal d-block" tabIndex="-1">
       <div className="modal-dialog">
@@ -17,17 +19,10 @@ const Survey = () => {
               onClick={() => closeSurvey()}
             />
           </div>
-          <div className="modal-body">
-            <Identity />
-            <Details />
-            <Favorites />
-            <Summary />
-          </div>
-          <div className="modal-footer">
-            <PrevButton />
-            <NextButton />
-            <SubmitButton />
-          </div>
+          <Identity />
+          <Details />
+          <Favorites />
+          <Summary />
         </div>
       </div>
     </div>
