@@ -25,7 +25,7 @@ const initialState = Storage.getSurvey() || {
 export const StepsContext = createContext();
 
 // create Steps Context Provider
-export const StepContextProvider = ({ children }) => {
+export const StepsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (

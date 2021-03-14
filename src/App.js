@@ -1,12 +1,12 @@
 import React from "react";
 import Survey from "./components/Survey";
-import { StepContextProvider } from "./context/StepsContext";
+import { StepsContextProvider } from "./context/StepsContext";
 import "./main.scss";
 
 const App = () => (
-  <StepContextProvider>
+  <StepsContextProvider>
     <Survey />
-  </StepContextProvider>
+  </StepsContextProvider>
 );
 
 export default App;
