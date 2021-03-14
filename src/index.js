@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import Storage from "./services/Storage";
 
+// Check if survey should open based on submission
 function shouldOpenSurvey() {
   const { submitted } = Storage.getSurvey() || false;
   return !submitted;

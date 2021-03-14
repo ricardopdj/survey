@@ -13,7 +13,7 @@ export default function reducer(state, action) {
       Storage.saveSurvey(nextStepState);
       return nextStepState;
     case actions.PREV_STEP:
-      let prevStepState = {
+      const prevStepState = {
         ...state,
         currentStep: state.currentStep - 1,
       };
