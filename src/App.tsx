@@ -3,7 +3,7 @@ import Survey from "./components/Survey";
 import { StepsContextProvider } from "./context/StepsContext";
 import "./main.scss";
 
-const App = () => (
+const App: React.FC = () => (
   <StepsContextProvider>
     <Survey />
   </StepsContextProvider>

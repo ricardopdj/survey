@@ -1,9 +1,10 @@
+import React from "react";
 import { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { STEPS, StepsContext } from "../../context/StepsContext";
 import StepContainer from "./StepContainer";
 
-const Summary = () => {
+const Summary: React.FC = () => {
   const { state } = useContext(StepsContext);
 
   if (state.currentStep !== STEPS.SUMMARY) {

@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext, useState } from "react";
 import actions from "../../context/Actions";
 import { STEPS, StepsContext } from "../../context/StepsContext";
@@ -5,7 +6,7 @@ import ColorsCheckbox from "../ColorsCheckbox";
 import ErrorFeedback from "../ErrorFeedback";
 import StepContainer from "./StepContainer";
 
-const Favorites = () => {
+const Favorites: React.FC = () => {
   const { state, dispatch } = useContext(StepsContext);
   const { book, colors } = state;
   const [errors, setErrors] = useState({

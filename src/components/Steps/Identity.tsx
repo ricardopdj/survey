@@ -1,9 +1,10 @@
+import React from "react";
 import { useContext } from "react";
 import actions from "../../context/Actions";
 import { STEPS, StepsContext } from "../../context/StepsContext";
 import StepContainer from "./StepContainer";
 
-const Identity = () => {
+const Identity: React.FC = () => {
   const { state, dispatch } = useContext(StepsContext);
   const { name, email } = state;
 

@@ -1,8 +1,14 @@
 import { closeSurvey } from "../services/Utils";
 import actions from "./Actions";
 import Storage from "../services/Storage";
+import { SurveyState } from "../context/StepsContext";
 
-export default function reducer(state, action) {
+interface actionProps {
+  type: actions;
+  payload?: any;
+}
+
+export default function reducer(state: SurveyState, action: actionProps) {
   const { payload } = action;
   switch (action.type) {
     case actions.NEXT_STEP:

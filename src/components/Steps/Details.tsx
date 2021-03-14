@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext, useState } from "react";
 import actions from "../../context/Actions";
 import { STEPS, StepsContext } from "../../context/StepsContext";
@@ -5,7 +6,7 @@ import ErrorFeedback from "../ErrorFeedback";
 import GendersRadio from "../GendersRadio";
 import StepContainer from "./StepContainer";
 
-const Details = () => {
+const Details: React.FC = () => {
   const { state, dispatch } = useContext(StepsContext);
   const { age, gender } = state;
   const [errors, setErrors] = useState({ ageError: false, genderError: false });

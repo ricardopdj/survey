@@ -1,9 +1,10 @@
+import React from "react";
 import { useContext } from "react";
 import actions from "../context/Actions";
 import { StepsContext } from "../context/StepsContext";
 import { v4 as uuidv4 } from "uuid";
 
-const GendersRadio = () => {
+const GendersRadio: React.FC = () => {
   const { state, dispatch } = useContext(StepsContext);
   const { gender: selectedGender } = state;
   const genderList = ["Woman", "Man", "Transgender", "Prefer not to respond"];

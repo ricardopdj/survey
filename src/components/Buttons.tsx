@@ -1,8 +1,13 @@
+import React from "react";
 import { useContext } from "react";
 import actions from "../context/Actions";
 import { STEPS, StepsContext } from "../context/StepsContext";
 
-export const PrevButton = () => {
+interface NextButtonProps {
+  onClick: () => void;
+}
+
+export const PrevButton: React.FC = () => {
   const { state, dispatch } = useContext(StepsContext);
 
   if (state.currentStep !== STEPS.IDENTITY) {
@@ -19,7 +24,7 @@ export const PrevButton = () => {
   return null;
 };
 
-export const NextButton = ({ onClick }) => {
+export const NextButton: React.FC<NextButtonProps> = ({ onClick }) => {
   const { state } = useContext(StepsContext);
   if (state.currentStep !== STEPS.SUMMARY) {
     return (
@@ -31,7 +36,7 @@ export const NextButton = ({ onClick }) => {
   return null;
 };
 
-export const SubmitButton = () => {
+export const SubmitButton: React.FC = () => {
   const { state, dispatch } = useContext(StepsContext);
   if (state.currentStep === STEPS.SUMMARY) {
     return (

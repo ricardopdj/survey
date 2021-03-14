@@ -1,12 +1,10 @@
-import { useContext } from "react";
-import { StepsContext } from "../context/StepsContext";
+import React from "react";
 import { closeSurvey } from "../services/Utils";
 import { Details, Favorites, Identity, Summary } from "./Steps";
 
-const Survey = () => {
-  const { state } = useContext(StepsContext);
+const Survey: React.FC = () => {
   return (
-    <div className="modal d-block" tabIndex="-1">
+    <div className="modal d-block">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">

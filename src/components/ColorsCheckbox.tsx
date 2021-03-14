@@ -1,14 +1,15 @@
+import React from "react";
 import { useContext } from "react";
 import actions from "../context/Actions";
 import { StepsContext } from "../context/StepsContext";
 import { v4 as uuidv4 } from "uuid";
 
-const ColorsCheckbox = () => {
+const ColorsCheckbox: React.FC = () => {
   const { state, dispatch } = useContext(StepsContext);
   const { colors } = state;
-  const colorList = ["Blue", "Red", "Green", "Orange"];
+  const colorList: string[] = ["Blue", "Red", "Green", "Orange"];
 
-  const isColorSelected = (color) => {
+  const isColorSelected = (color: string) => {
     return colors.includes(color);
   };
   return (

@@ -1,3 +1,4 @@
+import { SurveyState } from "../context/StepsContext";
 const SESSION_KEY = "@survey-form";
 
 const Storage = {
@@ -5,7 +6,7 @@ const Storage = {
     const survey = localStorage.getItem(SESSION_KEY);
     return JSON.parse(survey);
   },
-  saveSurvey: (surveyData) => {
+  saveSurvey: (surveyData: SurveyState) => {
     localStorage.setItem(SESSION_KEY, JSON.stringify(surveyData));
   },
 };

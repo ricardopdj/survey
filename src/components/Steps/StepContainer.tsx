@@ -1,6 +1,11 @@
+import React from "react";
 import { PrevButton, NextButton, SubmitButton } from "../Buttons";
 
-const StepContainer = ({ children, onValidateStep }) => {
+interface Props {
+  children: JSX.Element;
+  onValidateStep?: () => void;
+}
+const StepContainer: React.FC<Props> = ({ children, onValidateStep }) => {
   return (
     <>
       <div className="modal-body">{children}</div>
