@@ -51,6 +51,3 @@ $ npm run build
 <img width="200" src="screenshots/details.png">
 <img width="200" src="screenshots/favorites.png">
 <img width="200" src="screenshots/summary.png">
-
-## TODO
-Add test coverage
