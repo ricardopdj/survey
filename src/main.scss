@@ -1,5 +1,17 @@
 #survey {
   @import "~bootstrap/scss/bootstrap";
+  line-height: 1.5;
   font-family: Arial, Helvetica, sans-serif;
   position: absolute;
+
+  .summary .label {
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 5px;
+    text-align: right;
+    width: 20%;
+  }
+  .summary .value {
+    font-weight: bold;
+  }
 }

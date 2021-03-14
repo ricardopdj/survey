@@ -21,7 +21,6 @@ function init() {
       setTimeout(() => {
         ReactDOM.render(<App />, document.getElementById("survey"));
       }, 2000);
-      // ReactDOM.render(<App />, document.getElementById("survey"));
     };
   }
 }

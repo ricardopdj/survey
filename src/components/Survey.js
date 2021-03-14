@@ -1,56 +1,8 @@
-import { useContext } from "react";
-import { closeSurvey, STEPS, StepsContext } from "../context/StepsContext";
+import { closeSurvey } from "../services/Utils";
+import { NextButton, PrevButton, SubmitButton } from "./Buttons";
 import { Details, Favorites, Identity, Summary } from "./Steps";
 
 const Survey = () => {
-  const { state, dispatch } = useContext(StepsContext);
-  console.log(state);
-
-  const PrevButton = () => {
-    if (state.currentStep !== STEPS.IDENTITY) {
-      return (
-        <button
-          type="button"
-          className="btn btn-light me-auto"
-          onClick={() => dispatch({ type: "prevStep" })}
-        >
-          Prev
-        </button>
-      );
-    }
-    return null;
-  };
-
-  const NextButton = () => {
-    if (state.currentStep !== STEPS.SUMMARY) {
-      return (
-        <button
-          type="button"
-          className="btn btn-light"
-          onClick={() => dispatch({ type: "nextStep" })}
-        >
-          Next
-        </button>
-      );
-    }
-    return null;
-  };
-
-  const SubmitButton = () => {
-    if (state.currentStep === STEPS.SUMMARY) {
-      return (
-        <button
-          type="button"
-          className="btn btn-success"
-          onClick={() => dispatch({ type: "submit" })}
-        >
-          Submit
-        </button>
-      );
-    }
-    return null;
-  };
-
   return (
     <div className="modal d-block" tabIndex="-1">
       <div className="modal-dialog">

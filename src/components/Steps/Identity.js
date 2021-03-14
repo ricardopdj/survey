@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import actions from "../../context/Actions";
 import { STEPS, StepsContext } from "../../context/StepsContext";
 
 const Identity = () => {
@@ -10,6 +11,7 @@ const Identity = () => {
   }
   return (
     <div className="step">
+      <h3>Identity</h3>
       <div className="mb-3">
         <label htmlFor="name" className="form-label">
           Name
@@ -21,7 +23,7 @@ const Identity = () => {
           aria-describedby="name"
           value={name}
           onChange={(e) =>
-            dispatch({ type: "setFormValue", payload: { event: e } })
+            dispatch({ type: actions.SET_FORM_VALUE, payload: { event: e } })
           }
         />
       </div>
@@ -37,7 +39,7 @@ const Identity = () => {
           name="email"
           value={email}
           onChange={(e) =>
-            dispatch({ type: "setFormValue", payload: { event: e } })
+            dispatch({ type: actions.SET_FORM_VALUE, payload: { event: e } })
           }
         />
       </div>

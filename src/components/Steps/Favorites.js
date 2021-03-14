@@ -1,19 +1,18 @@
 import { useContext } from "react";
+import actions from "../../context/Actions";
 import { STEPS, StepsContext } from "../../context/StepsContext";
+import ColorsCheckbox from "../ColorsCheckbox";
 
 const Favorites = () => {
   const { state, dispatch } = useContext(StepsContext);
-  const { book, colors } = state;
-
-  const isColorSelected = (color) => {
-    return colors.includes(color);
-  };
+  const { book } = state;
 
   if (state.currentStep !== STEPS.FAVORITES) {
     return null;
   }
   return (
     <div className="step">
+      <h3>Favorites</h3>
       <div className="mb-3">
         <label htmlFor="book" className="form-label">
           Book
@@ -25,42 +24,11 @@ const Favorites = () => {
           aria-describedby="book"
           value={book}
           onChange={(e) =>
-            dispatch({ type: "setFormValue", payload: { event: e } })
+            dispatch({ type: actions.SET_FORM_VALUE, payload: { event: e } })
           }
         />
       </div>
-      <div>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value="blue"
-            id="flexCheckDefault"
-            checked={isColorSelected("blue")}
-            onChange={(e) =>
-              dispatch({ type: "setFormValueColor", payload: { event: e } })
-            }
-          />
-          <label className="form-check-label" htmlFor="flexCheckDefault">
-            Blue
-          </label>
-        </div>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value="red"
-            id="flexCheckChecked"
-            checked={isColorSelected("red")}
-            onChange={(e) =>
-              dispatch({ type: "setFormValueColor", payload: { event: e } })
-            }
-          />
-          <label className="form-check-label" htmlFor="flexCheckChecked">
-            Red
-          </label>
-        </div>
-      </div>
+      <ColorsCheckbox />
     </div>
   );
 };
