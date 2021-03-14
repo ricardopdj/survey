@@ -19,16 +19,6 @@ module.exports = {
           {
             loader: "css-loader",
           },
-          // {
-          //   loader: "postcss-loader",
-          //   options: {
-          //     postcssOptions: {
-          //       plugins: function () {
-          //         return [require("autoprefixer")];
-          //       },
-          //     },
-          //   },
-          // },
           {
             // compiles Sass to CSS
             loader: "sass-loader",
